@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProductRow: View {
+    
+    let product: Product
+    
     var body: some View {
         HStack {
             productImage
@@ -17,26 +20,26 @@ struct ProductRow: View {
         .background(Color.primary.colorInvert()) //다크모드 라이트모드
         .cornerRadius(10)
         .shadow(color: .primaryShadow, radius: 1, x: 2, y: 2)
-        .padding(.vertical, 20)
+        .padding(.vertical, 10)
     }
 }
 
 private extension ProductRow {
     var productImage: some View {
-        Image("Sosuke")
+        Image(product.ImageName)
             .resizable()
-            .scaledToFit()
-            .frame(height: 150)
+            .scaledToFill()
+            .frame(width: 150)
             .clipped()
     }
     var productDescription: some View {
         VStack(alignment: .leading){
-            Text("소스케")
+            Text(product.name)
                 .font(.headline)
                 .fontWeight(.medium)
                 .padding(.bottom, 10)
             
-            Text("5살 남자 아이. 본작품의 주인공. 벼랑 위에 있는 2~3층 정도 되는 주택에서 엄마와 함께 살고 있다.")
+            Text(product.description)
                 .font(.footnote)
                 .foregroundColor(.secondary)
             
@@ -57,7 +60,8 @@ private extension ProductRow {
             
             Spacer()
             
-            Text("벼랑위의 포뇨").font(.headline).foregroundColor(.DarkGreen)
+            Text(product.movie)
+                .font(.system(size: 15)).foregroundColor(.DarkGreen)
             
         }
     }
@@ -66,6 +70,6 @@ private extension ProductRow {
 
 struct ProductRow_preview: PreviewProvider {
     static var previews: some View {
-        ProductRow()
+        ProductRow(product: ProductList[0])
     }
 }

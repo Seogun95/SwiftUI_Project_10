@@ -9,10 +9,12 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-        VStack {
-            ProductRow()
-            ProductRow()
-            ProductRow()
+        VStack(spacing: 0) {
+                ProductRow(product: ProductList[0])
+                ProductRow(product: ProductList[1])
+                ProductRow(product: ProductList[2])
+                ProductRow(product: ProductList[3])
+                ProductRow(product: ProductList[4])
         }
     }
 }
