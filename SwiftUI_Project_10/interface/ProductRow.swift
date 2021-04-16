@@ -16,7 +16,7 @@ struct ProductRow: View {
         .frame(height: 150)
         .background(Color.primary.colorInvert()) //다크모드 라이트모드
         .cornerRadius(10)
-        .shadow(color: Color.primary.opacity(0.3), radius: 1, x: 2, y: 2)
+        .shadow(color: .primaryShadow, radius: 1, x: 2, y: 2)
         .padding(.vertical, 20)
     }
 }
