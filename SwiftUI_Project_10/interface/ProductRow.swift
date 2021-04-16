@@ -23,7 +23,7 @@ struct ProductRow: View {
 
 private extension ProductRow {
     var productImage: some View {
-        Image("소스케")
+        Image("Sosuke")
             .resizable()
             .scaledToFit()
             .frame(height: 150)
