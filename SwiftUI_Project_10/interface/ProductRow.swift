@@ -42,6 +42,7 @@ private extension ProductRow {
             Text(product.description)
                 .font(.footnote)
                 .foregroundColor(.secondary)
+                .lineLimit(3)
             
             Spacer()
             
@@ -55,13 +56,19 @@ private extension ProductRow {
         HStack(spacing: 0) {
             Text(.init(systemName: "film.fill"))
                 .font(.footnote)
-                .foregroundColor(.lightRed) + Text("영화정보")
+                .foregroundColor(.lightRed) + Text(product.movie)
                 .font(.footnote)
             
             Spacer()
             
-            Text(product.movie)
-                .font(.system(size: 15)).foregroundColor(.DarkGreen)
+            Image(systemName: "heart")
+              .imageScale(.large)
+              .foregroundColor(.lightRed)
+              .frame(width: 32, height: 32)
+            
+            Image(systemName: "cart")
+              .foregroundColor(.lightRed)
+              .frame(width: 32, height: 32)
             
         }
     }

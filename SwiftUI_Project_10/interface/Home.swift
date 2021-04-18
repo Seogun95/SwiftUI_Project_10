@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct Home: View {
+    let movie: Movie
+    
     var body: some View {
-        VStack(spacing: 0) {
-                ProductRow(product: ProductList[0])
-                ProductRow(product: ProductList[1])
-                ProductRow(product: ProductList[2])
-                ProductRow(product: ProductList[3])
-                ProductRow(product: ProductList[4])
+        List(movie.products, id: \.name) { product in
+            ProductRow(product: product)
+            
         }
     }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        Home(movie: Movie())
     }
 }

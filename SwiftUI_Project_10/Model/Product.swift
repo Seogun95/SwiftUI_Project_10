@@ -3,12 +3,15 @@
 import SwiftUI
 
 struct Product {
+    let id: UUID = UUID()
     let name: String
     let ImageName: String
     let movie: String
     let description: String
     var isFavorite: Bool = false
 }
+extension Product: Decodable {}
+extension Product: Identifiable {}
 
 let ProductList = [
     Product(name: "소스케", ImageName: "Sosuke", movie: "벼랑위의 포뇨", description: "5살 남자 아이. 본작품의 주인공. 벼랑 위에 있는 2~3층 정도 되는 주택에서 엄마와 함께 살고 있다."),
