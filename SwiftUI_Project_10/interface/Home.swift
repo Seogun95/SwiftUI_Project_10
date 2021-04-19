@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  Home.swift
 //  SwiftUI_Project_10
 //
 //  Created by 김선중 on 2021/04/10.
@@ -11,9 +11,14 @@ struct Home: View {
     let movie: Movie
     
     var body: some View {
-        List(movie.products, id: \.name) { product in
-            ProductRow(product: product)
-            
+        NavigationView {
+            List(movie.products, id: \.name) { product in
+                NavigationLink(
+                    destination: Text("디테일 뷰")) {
+                    ProductRow(product: product)
+                }
+            }
+            .navigationBarTitle("지브리 스튜디오")
         }
     }
 }
