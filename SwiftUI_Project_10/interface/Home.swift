@@ -14,11 +14,15 @@ struct Home: View {
         NavigationView {
             List(movie.products, id: \.name) { product in
                 NavigationLink(
-                    destination: Text("디테일 뷰")) {
+                    destination: ProductDetailView(product: product) .navigationBarBackButtonHidden(true)) {
                     ProductRow(product: product)
+                       
+                    
                 }
+                
             }
             .navigationBarTitle("지브리 스튜디오")
+            
         }
     }
 }

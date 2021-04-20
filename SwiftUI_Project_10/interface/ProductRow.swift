@@ -34,10 +34,16 @@ private extension ProductRow {
     }
     var productDescription: some View {
         VStack(alignment: .leading){
-            Text(product.name)
-                .font(.headline)
-                .fontWeight(.medium)
-                .padding(.bottom, 10)
+            
+            HStack {
+                Text(product.name)
+                    .font(.headline)
+                    .fontWeight(.medium)
+                Spacer()
+                Text(product.movie)
+                    .font(.footnote).foregroundColor(.gray)
+            }
+            .padding(.bottom, 10)
             
             Text(product.description)
                 .font(.footnote)
@@ -47,28 +53,26 @@ private extension ProductRow {
             Spacer()
             
             footerView
-
+            
         }
         .padding([.leading, .bottom], 10)
         .padding([.trailing, .top])
     }
     var footerView: some View {
         HStack(spacing: 0) {
-            Text(.init(systemName: "film.fill"))
-                .font(.footnote)
-                .foregroundColor(.lightRed) + Text(product.movie)
-                .font(.footnote)
+            Text("￦").font(.footnote)
+                + Text("\(product.price)").font(.headline)
             
             Spacer()
             
             Image(systemName: "heart")
-              .imageScale(.large)
-              .foregroundColor(.lightRed)
-              .frame(width: 32, height: 32)
+                .imageScale(.large)
+                .foregroundColor(.lightRed)
+                .frame(width: 32, height: 32)
             
             Image(systemName: "cart")
-              .foregroundColor(.lightRed)
-              .frame(width: 32, height: 32)
+                .foregroundColor(.lightRed)
+                .frame(width: 32, height: 32)
             
         }
     }
